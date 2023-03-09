@@ -3,7 +3,8 @@ import colorlog
 
 
 def get_script_logger(level: str = 'DEBUG') -> logging.Logger:
-  logger = logging.getLogger('default')
+  logger_name = 'default'
+  logger = logging.getLogger(logger_name)
   formatter = colorlog.ColoredFormatter(
       fmt='%(log_color)s%(levelname)s: %(asctime_log_color)s[%(asctime)s] %(pathname_log_color)s%(pathname)s:%(lineno_log_color)s%(lineno)d %(funcName_log_color)s%(funcName)s %(message_log_color)s%(message)s',
       log_colors={
@@ -62,6 +63,11 @@ def get_script_logger(level: str = 'DEBUG') -> logging.Logger:
   )
   handler = logging.StreamHandler()
   handler.setFormatter(formatter)
+  handler.name = logger_name
+
+  for handler in logger.handlers:
+    if handler.name == logger_name:
+      return logger
 
   logger.addHandler(handler)
   logger.setLevel(level)
