@@ -22,7 +22,7 @@ class Main(Base):
   def datasets_path(self):
     if self.__datasets_path is None:
       # self.__datasets_path = os.path.join(self.drive_letter, 'datasets')
-      self.__datasets_path = 'datasets'
+      self.__datasets_path = 'my_datasets'
     return self.__datasets_path
 
   @property
