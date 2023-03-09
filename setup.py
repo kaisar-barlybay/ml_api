@@ -4,8 +4,8 @@ with open("README.md", "r", encoding="utf-8") as fh:
   long_description = fh.read()
 
 setuptools.setup(
-    name='aes_library',
-    version='0.00.01',
+    name='api',
+    version='0.00.02',
     author='Kaisar Barlybay',
     author_email='kaisar.barlybay.sse@gmail.com',
     description='Testing installation of Package',
@@ -17,7 +17,7 @@ setuptools.setup(
     },
     license='MIT',
     packages=[
-        'ml_api',
+        'api',
     ],
     install_requires=[
     ],
