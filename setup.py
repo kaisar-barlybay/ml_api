@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name='api',
-    version='0.00.03',
+    version='0.00.04',
     author='Kaisar Barlybay',
     author_email='kaisar.barlybay.sse@gmail.com',
     description='Testing installation of Package',
@@ -20,5 +20,6 @@ setuptools.setup(
         'api',
     ],
     install_requires=[
+        'colorlog>=6.6.0',
     ],
 )
