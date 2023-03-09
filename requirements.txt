@@ -1,0 +1,10 @@
+# base
+pylint
+autopep8
+mypy
+# ml
+# nlp
+# visualization
+# tests
+pytest-cov==3.0.0
+pytest==7.1.2
