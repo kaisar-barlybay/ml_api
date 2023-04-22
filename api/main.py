@@ -10,24 +10,9 @@ class Main(Base):
     super().__init__()
     self.visualizer = Visualizer()
     self.preprocessor = Preprocessor()
-    self.__datasets_path = None
-    self.__temp_path = None
+    self.src_path = os.path.join(self.drive_letter, 'src')
 
   def get_not_null_df(self, df: DataFrame, column_names: list[str]):
     for cn in column_names:
       df = df[~df[cn].isnull()]
     return df
-
-  @property
-  def datasets_path(self):
-    if self.__datasets_path is None:
-      # self.__datasets_path = os.path.join(self.drive_letter, 'datasets')
-      self.__datasets_path = 'my_datasets'
-    return self.__datasets_path
-
-  @property
-  def temp_path(self):
-    if self.__temp_path is None:
-      # self.__datasets_path = os.path.join(self.drive_letter, 'temp')
-      self.__temp_path = 'temp'
-    return self.__temp_path
