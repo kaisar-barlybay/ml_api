@@ -5,7 +5,7 @@ from pandas import DataFrame, ExcelWriter
 
 class Base:
   def __init__(self) -> None:
-    self.__drive_letter = None
+    self.drive_letter = os.getcwd()[:3]
 
   def check_create_dir(self, path: str) -> None:
     Path(path).mkdir(parents=True, exist_ok=True)
@@ -27,8 +27,3 @@ class Base:
       for df, sheet_name, sort_values in df_sheet_names:
         self.to_excel(df, path_or_sheetname=sheet_name, sort_values=sort_values, writer=writer)
 
-  @property
-  def drive_letter(self):
-    if self.__drive_letter is None:
-      self.__drive_letter = os.getcwd()[:3]
-    return self.__drive_letter
