@@ -3,13 +3,20 @@ import os
 import environ
 from pathlib import Path
 from pandas import DataFrame, ExcelWriter
+from dotenv import load_dotenv
+
+load_dotenv()
 env = environ.Env()
 environ.Env.read_env()
 
 
 class Base:
   def __init__(self) -> None:
-    self.drive_letter = env('drive_letter', default=os.getcwd()[:3])
+    self.drive_letter = os.getenv('drive_letter',
+                                  default=env('drive_letter',
+                                              default=os.getcwd()[:3]
+                                              )
+                                  )
     self.__nlp = None
 
   @property

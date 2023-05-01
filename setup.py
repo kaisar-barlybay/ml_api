@@ -18,9 +18,11 @@ setuptools.setup(
     license='MIT',
     packages=[
         'api',
+        'api.tests'
     ],
     install_requires=[
         'colorlog>=6.6.0',
         'pandas',
+        'python-dotenv',
     ],
 )
