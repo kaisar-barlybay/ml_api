@@ -1,3 +1,4 @@
+import spacy
 import os
 import environ
 from pathlib import Path
@@ -9,7 +10,14 @@ environ.Env.read_env()
 class Base:
   def __init__(self) -> None:
     self.drive_letter = env('drive_letter', default=os.getcwd()[:3])
-    print(self.drive_letter)
+    self.__nlp = None
+
+  @property
+  def nlp(self):
+    if self.__nlp is None:
+      self.__nlp = spacy.load("ru_core_news_sm")
+      self.__nlp.max_length = 2000000
+    return self.__nlp
 
   def check_create_dir(self, path: str) -> None:
     Path(path).mkdir(parents=True, exist_ok=True)

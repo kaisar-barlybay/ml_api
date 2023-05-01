@@ -16,8 +16,6 @@ class Normalizer(Base):
     super().__init__()
     self.stops_ru = set(stopwords.words('russian'))
     self.stops_en = set(stopwords.words('english'))
-    self.nlp = spacy.load("ru_core_news_sm")
-    self.nlp.max_length = 2000000
 
   def clean_text(self, text: str, lang_code: str = 'en', stops: list[str] = []) -> str:
     try:
