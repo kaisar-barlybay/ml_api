@@ -4,6 +4,7 @@ autopep8
 mypy
 colorlog>=6.6.0
 # ml
+pandas
 # nlp
 # visualization
 # tests

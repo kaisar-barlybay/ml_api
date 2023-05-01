@@ -1,11 +1,15 @@
 import os
+import environ
 from pathlib import Path
 from pandas import DataFrame, ExcelWriter
+env = environ.Env()
+environ.Env.read_env()
 
 
 class Base:
   def __init__(self) -> None:
-    self.drive_letter = os.getcwd()[:3]
+    self.drive_letter = env('drive_letter', default=os.getcwd()[:3])
+    print(self.drive_letter)
 
   def check_create_dir(self, path: str) -> None:
     Path(path).mkdir(parents=True, exist_ok=True)
@@ -26,4 +30,3 @@ class Base:
     with ExcelWriter(path) as writer:
       for df, sheet_name, sort_values in df_sheet_names:
         self.to_excel(df, path_or_sheetname=sheet_name, sort_values=sort_values, writer=writer)
-
