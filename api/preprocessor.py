@@ -11,7 +11,12 @@ class Preprocessor(Base):
   def __init__(self) -> None:
     super().__init__()
     self.normalizer = Normalizer()
-    self.nlp = spacy.load("ru_core_news_sm")
+
+  @property
+  def nlp(self):
+    if self.__nlp is None:
+      self.__nlp = spacy.load("ru_core_news_sm")
+    return self.__nlp
 
   def tokenize(self, text: str):
     try:

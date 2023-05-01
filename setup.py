@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name='api',
-    version='0.00.08',
+    version='0.00.09',
     author='Kaisar Barlybay',
     author_email='kaisar.barlybay.sse@gmail.com',
     description='Testing installation of Package',
